@@ -1,0 +1,58 @@
+<%- include("partials/header") %>
+
+  <div class="container">
+    <div class="box1">
+      <h1>To-Do-List</h1>
+    </div>
+    <div class="box2">
+      <% exej.forEach(val=> { %>
+        <div class="check">
+          <form action="">
+           
+            <p>
+              <span></span> <%= val.name %>-<%= val.priority %>
+            </p>
+          </form>
+          <div class="manipulate">
+            <form action="/delete/<%= val._id %>" method="POST">
+              <button class="delete" type="submit"><ion-icon name="trash"></ion-icon></button>
+            </form>
+            <a class="edit" href="/edit/<%= val._id %>"><ion-icon name="create"></ion-icon></a>
+          </div>
+        </div>
+        <hr>
+        <% }) %>
+        
+          <form action="/add" method="POST" class="adding">
+            <input type="text" name="todo" placeholder="enter the task">
+            <select name="priority">
+              <option value="null">mark priority</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+            <button class="addbtn" type="submit">+</button>
+          </form>
+
+          <form action="/filter" method="GET" class="filter">
+            <label>Filter:</label>
+            <select name="priority">
+              <option value="">All</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+            <button type="submit">Apply</button>
+          </form>
+    </div>
+  </div>
+  
+<%- include("partials/footer") %>
+
+<% if (alertMsg) { %>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      alert("<%= alertMsg %>");
+    });
+  </script>
+<% } %>

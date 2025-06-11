@@ -1,0 +1,230 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: rgb(250, 248, 248);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  background-color: rgb(250, 248, 248);
+  flex: 1;
+
+  width: 100%;
+  padding-top: 0.6rem;
+  padding-bottom: 4rem;
+
+  box-shadow: 4px 4px 4px 4px gray;
+}
+
+.box1 {
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box2 {
+  width: 100%;
+  padding-left: 1rem;
+
+}
+
+
+
+
+
+header {
+  text-align: center;
+  padding: 1rem;
+  color: white;
+  background: #2A7B9B;
+  background: linear-gradient(193deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 0%, rgba(237, 221, 83, 1) 100%);
+}
+
+
+footer {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  background: #020024;
+  background: linear-gradient(182deg, rgba(2, 0, 36, 1) 0%, rgba(96, 96, 209, 1) 0%, rgba(0, 212, 255, 1) 100%);
+  padding: 0.1rem 0;
+
+}
+
+a {
+  text-decoration: none;
+  margin-left: 2rem;
+  margin-top: -0.1rem;
+}
+
+.check {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.delete {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 4px 4px;
+  font-weight: bold;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input {
+  width: 30%;
+  padding: 0.5rem;
+  border-radius: 1%;
+}
+
+select {
+
+  padding: 0.5rem;
+
+}
+
+.addbtn {
+  font-size: 0.8rem;
+  padding: 0.4rem;
+  background-color: lightblue;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.addbtn:hover {
+  background-color: rgb(114, 212, 245);
+}
+
+.check form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.manipulate {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.tick {
+  width: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+hr{
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+
+.adding,
+.filter {
+  margin-bottom: 2rem;
+}
+
+
+
+input[type="checkbox"]:checked+p {
+  text-decoration: line-through;
+
+}
+
+
+@media screen and (max-width: 1024px) {
+  input {
+    width: 50%;
+  }
+
+  .check {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .check form {
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .box2 {
+    padding-left: 2rem;
+  }
+}
+
+
+@media screen and (max-width: 770px) {
+
+  .adding,
+  .filter {
+    margin-bottom: 3rem;
+    margin-right: 1rem;
+  }
+hr{
+margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+  .box2 {
+    padding: 0 1rem;
+  }
+
+  .box2 form {
+    padding-right: 1rem;
+  }
+
+  input {
+    width: 90%;
+    margin-bottom: 0.5rem;
+
+  }
+
+  .check {
+
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .check form {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .manipulate {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  header,
+  footer {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}
