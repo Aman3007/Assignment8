@@ -33,8 +33,9 @@ cd repo-name
 
 2. Set up the backend
 ```
-cd server
-npm install
+npm init -y
+npm i all-dependencies     // you can see package.json file
+
 ```
 Create a `.env` file in `server/` and add:
 ```
@@ -44,7 +45,7 @@ MONGO_URI=your_mongodb_uri
 ```
 Start the backend:
 ```
-npm start
+Node app.js
 ```
 
 **Aman Singh Chauhan**
