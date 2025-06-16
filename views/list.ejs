@@ -14,7 +14,7 @@
             </p>
           </form>
           <div class="manipulate">
-            <form action="/delete/<%= val._id %>" method="POST">
+            <form action="/delete/<%= val._id %>?_method=DELETE" method="POST" >
               <button class="delete" type="submit"><ion-icon name="trash"></ion-icon></button>
             </form>
             <a class="edit" href="/edit/<%= val._id %>"><ion-icon name="create"></ion-icon></a>
