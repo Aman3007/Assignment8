@@ -41,6 +41,13 @@ app.post("/add", async (req, res) => {
     try {
         const { todo, priority } = req.body;
      if(!todo||todo.trim()===""){
+          if(priority==="null"){
+  return res.render("list", {
+            exej: await Todo.find({}),      
+            alertMsg: " please mark the priority."
+        });
+
+        }
   return res.render("list", {
             exej: await Todo.find({}),      
             alertMsg: " Todo field cannot be empty."
