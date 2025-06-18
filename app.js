@@ -40,19 +40,26 @@ app.get("/", async (req, res) => {
 app.post("/add", async (req, res) => {
     try {
         const { todo, priority } = req.body;
-     if(!todo||todo.trim()===""){
-               if(priority==="null"){
+     if(!todo||todo.trim()===""||priority==="null"){
+          if(priority==="null"&&todo.trim()===""&&!todo){
               return res.render("list", {
             exej: await Todo.find({}),      
-            alertMsg: " please mark the priority."
+            alertMsg: " Fields cant be empty."
         });
-
- }
-           return res.render("list", {
+          }
+                else if(priority==="null"){
+                     return res.render("list", {
+                     exej: await Todo.find({}),      
+                     alertMsg: " mark the priority."
+                           });
+}
+else{
+   return res.render("list", {
             exej: await Todo.find({}),      
-            alertMsg: " Todo field cannot be empty."
+            alertMsg: "Input field can not be empty."
         });
-    
+}
+
      }
      else{
 await Todo.insertOne({name:todo,priority:priority});
