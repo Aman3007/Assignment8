@@ -2,11 +2,13 @@ require("dotenv").config();
 const express = require("express")
 const bodyparser = require("body-parser")
 const mongoose = require("mongoose")
+const methodOverride = require("method-override");
+
 const app = express();
 app.set("view engine", "ejs")
 app.use(express.static("public"))
 app.use(bodyparser.urlencoded({ extended: true }))
-
+app.use(methodOverride("_method")); 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -39,10 +41,18 @@ app.post("/add", async (req, res) => {
     try {
         const { todo, priority } = req.body;
      if(!todo||todo.trim()===""){
+          if(priority==="null"){
   return res.render("list", {
+            exej: await Todo.find({}),      
+            alertMsg: " please mark the priority."
+        });
+
+        }
+           return res.render("list", {
             exej: await Todo.find({}),      
             alertMsg: " Todo field cannot be empty."
         });
+    
      }else{
 await Todo.insertOne({name:todo,priority:priority});
         res.redirect("/");
@@ -71,7 +81,7 @@ app.get("/edit/:id", async(req, res) => {
   res.render("edit", {task:edittodo});
 });
 
-app.post("/update/:id", async(req, res) => {
+app.put("/update/:id", async(req, res) => {
   const { todo, priority } =  req.body;
   await Todo.updateOne({_id:req.params.id},{$set:{name:todo,
     priority:priority}
@@ -80,7 +90,7 @@ app.post("/update/:id", async(req, res) => {
 });
 
 
-app.post("/delete/:id", async (req, res) => {
+app.delete("/delete/:id", async (req, res) => {
   
   try {
     await Todo.findByIdAndDelete(req.params.id);
