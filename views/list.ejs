@@ -5,23 +5,7 @@
       <h1>To-Do-List</h1>
     </div>
     <div class="box2">
-      <% exej.forEach(val=> { %>
-        <div class="check">
-          <form action="">
-           
-            <p>
-              <span></span> <%= val.name %>-<%= val.priority %>
-            </p>
-          </form>
-          <div class="manipulate">
-            <form action="/delete/<%= val._id %>?_method=DELETE" method="POST" >
-              <button class="delete" type="submit"><ion-icon name="trash"></ion-icon></button>
-            </form>
-            <a class="edit" href="/edit/<%= val._id %>"><ion-icon name="create"></ion-icon></a>
-          </div>
-        </div>
-        <hr>
-        <% }) %>
+    
         
           <form action="/add" method="POST" class="adding">
             <input type="text" name="todo" placeholder="enter the task">
@@ -44,6 +28,23 @@
             </select>
             <button type="submit">Apply</button>
           </form>
+  <% exej.forEach(val=> { %>
+        <div class="check">
+          <form action="">
+           
+            <p>
+              <span></span> <%= val.name %>-<%= val.priority %>
+            </p>
+          </form>
+          <div class="manipulate">
+            <form action="/delete/<%= val._id %>?_method=DELETE" method="POST" >
+              <button class="delete" type="submit"><ion-icon name="trash"></ion-icon></button>
+            </form>
+            <a class="edit" href="/edit/<%= val._id %>"><ion-icon name="create"></ion-icon></a>
+          </div>
+        </div>
+        <hr>
+        <% }) %>
     </div>
   </div>
   
